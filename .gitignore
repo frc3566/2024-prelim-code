@@ -58,3 +58,8 @@ build/tmp/compileJava/previous-compilation-data.bin
 .gradle/file-system.probe
 build/debug/debug_info.json
 build/tmp/compileJava/previous-compilation-data.bin
+
+
+# ignore stuff that causes merge conflicts
+.gradle
+build

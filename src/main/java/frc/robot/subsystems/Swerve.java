@@ -26,7 +26,7 @@ public class Swerve extends SubsystemBase {
 
     public Swerve() {
         gyro = new AHRS(Constants.Swerve.navXPort);
-        gyro.calibrate();
+        // gyro.calibrate(); // goofy aah deprecation
         zeroGyro();
 
         mSwerveMods = new SwerveModule[] {

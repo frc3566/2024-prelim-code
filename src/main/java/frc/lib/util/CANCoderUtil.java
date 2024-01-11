@@ -25,7 +25,7 @@ public class CANCoderUtil {
    */
   public static void setCANCoderBusUsage(CANcoder cancoder, CCUsage usage) {
     if (usage == CCUsage.kAll) {
-      cancoder.
+      // cancoder.
       cancoder.setStatusFramePeriod(CANCoderStatusFrame.SensorData, 10);
       cancoder.setStatusFramePeriod(CANCoderStatusFrame.VbatAndFaults, 10);
     } else if (usage == CCUsage.kSensorDataOnly) {

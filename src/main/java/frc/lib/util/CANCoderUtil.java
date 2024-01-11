@@ -1,7 +1,6 @@
 package frc.lib.util;
 
 import com.ctre.phoenix6.hardware.CANcoder;
-import com.ctre.phoenix6.sensors.CANCoderStatusFrame;
 
 /** Sets status frames for the CTRE CANCoder. */
 public class CANCoderUtil {
@@ -24,8 +23,11 @@ public class CANCoderUtil {
    *     isconstructed.
    */
   public static void setCANCoderBusUsage(CANcoder cancoder, CCUsage usage) {
+    // determine the frequency Hz (new) from period ms (original)
+    // cancoder.getPosition().setUpdateFrequency(0);
+    // cancoder.getFault_Undervoltage().setUpdateFrequency(0);
+
     if (usage == CCUsage.kAll) {
-      // cancoder.
       cancoder.setStatusFramePeriod(CANCoderStatusFrame.SensorData, 10);
       cancoder.setStatusFramePeriod(CANCoderStatusFrame.VbatAndFaults, 10);
     } else if (usage == CCUsage.kSensorDataOnly) {

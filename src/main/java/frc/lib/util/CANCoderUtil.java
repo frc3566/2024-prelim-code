@@ -25,15 +25,19 @@ public class CANCoderUtil {
   public static void setCANCoderBusUsage(CANcoder cancoder, CCUsage usage) {
     if (usage == CCUsage.kAll) {
       cancoder.getPosition().setUpdateFrequency(100);
+      cancoder.getVelocity().setUpdateFrequency(100);
       cancoder.getFault_Undervoltage().setUpdateFrequency(100);
     } else if (usage == CCUsage.kSensorDataOnly) {
       cancoder.getPosition().setUpdateFrequency(100);
+      cancoder.getVelocity().setUpdateFrequency(10);
       cancoder.getFault_Undervoltage().setUpdateFrequency(10);
     } else if (usage == CCUsage.kFaultsOnly) {
       cancoder.getPosition().setUpdateFrequency(10);
+      cancoder.getVelocity().setUpdateFrequency(100);
       cancoder.getFault_Undervoltage().setUpdateFrequency(100);
     } else if (usage == CCUsage.kMinimal) {
       cancoder.getPosition().setUpdateFrequency(10);
+      cancoder.getVelocity().setUpdateFrequency(10);
       cancoder.getFault_Undervoltage().setUpdateFrequency(10);
     }
   }

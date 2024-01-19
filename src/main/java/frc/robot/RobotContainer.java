@@ -3,10 +3,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Axis;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.autos.*;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
@@ -34,8 +35,6 @@ public class RobotContainer {
 
     private final int leftTrigger = XboxController.Axis.kLeftTrigger.value;
     private final int rightTrigger = XboxController.Axis.kRightTrigger.value;
-    private final JoystickButton shooterForward = new JoystickButton(driver, leftTrigger);
-    private final JoystickButton shooterBackward = new JoystickButton(driver, rightTrigger);
 
     /* Subsystems */
     private final Swerve s_Swerve = new Swerve();
@@ -56,6 +55,10 @@ public class RobotContainer {
             )
         );
 
+        s_Shooter.setDefaultCommand(
+            new Shoot(s_Shooter, leftTrigger, rightTrigger)
+        );
+
         // Configure the button bindings
         configureButtonBindings();
     }
@@ -72,8 +75,6 @@ public class RobotContainer {
         resetModules.onTrue(reset);
 
         /* Shooter Buttons */
-        shooterForward.onTrue(new InstantCommand(() -> s_Shooter.setPower(driver.getRawAxis(leftTrigger))));
-        shooterBackward.onTrue(new InstantCommand(() -> s_Shooter.setPower(driver.getRawAxis(-rightTrigger))));
     }
 
     /**

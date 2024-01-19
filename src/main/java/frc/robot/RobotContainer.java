@@ -56,7 +56,10 @@ public class RobotContainer {
         );
 
         s_Shooter.setDefaultCommand(
-            new Shoot(s_Shooter, leftTrigger, rightTrigger)
+            new Shoot(
+                s_Shooter, 
+                () -> driver.getRawAxis(leftTrigger),
+                () -> driver.getRawAxis(rightTrigger))
         );
 
         // Configure the button bindings

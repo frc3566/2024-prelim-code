@@ -3,11 +3,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.XboxController.Axis;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.autos.*;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
@@ -22,35 +20,30 @@ public class RobotContainer {
     /* Controllers */
     private final Joystick driver = new Joystick(0);
 
-    /* Drive Controls */
-    private final int translationAxis = XboxController.Axis.kLeftY.value;
-    private final int strafeAxis = XboxController.Axis.kLeftX.value;
-    private final int rotationAxis = XboxController.Axis.kRightX.value;
+    /* Joystick Axes */
+    private final int leftThumbXID = XboxController.Axis.kLeftX.value;
+    private final int leftThumbYID = XboxController.Axis.kLeftY.value;
+    private final int rightThumbXID = XboxController.Axis.kRightX.value;
+
+    private final int leftTriggerID = XboxController.Axis.kLeftTrigger.value;
+    private final int rightTriggerID = XboxController.Axis.kRightTrigger.value;
 
     /* Driver Buttons */
     private final JoystickButton zeroGyro = new JoystickButton(driver, XboxController.Button.kX.value);
     private final JoystickButton robotCentric = new JoystickButton(driver, XboxController.Button.kY.value);
-    private final JoystickButton resetModules = new JoystickButton(driver, XboxController.Button.kB.value);
-
-
-    private final int leftTrigger = XboxController.Axis.kLeftTrigger.value;
-    private final int rightTrigger = XboxController.Axis.kRightTrigger.value;
 
     /* Subsystems */
     private final Swerve s_Swerve = new Swerve();
     private final Shooter s_Shooter = new Shooter();
-
-    private Command reset = new reset(s_Swerve);
-
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
         s_Swerve.setDefaultCommand(
             new TeleopSwerve(
                 s_Swerve, 
-                () -> -driver.getRawAxis(translationAxis), 
-                () -> -driver.getRawAxis(strafeAxis), 
-                () -> -driver.getRawAxis(rotationAxis), 
+                () -> -driver.getRawAxis(leftThumbYID), // translation axis
+                () -> -driver.getRawAxis(leftThumbXID), // strafe axis
+                () -> -driver.getRawAxis(rightThumbXID),  // rotation axis
                 () -> robotCentric.getAsBoolean()
             )
         );
@@ -58,11 +51,11 @@ public class RobotContainer {
         s_Shooter.setDefaultCommand(
             new Shoot(
                 s_Shooter, 
-                () -> driver.getRawAxis(leftTrigger),
-                () -> driver.getRawAxis(rightTrigger))
+                () -> driver.getRawAxis(leftTriggerID),
+                () -> driver.getRawAxis(rightTriggerID)
+            )
         );
 
-        // Configure the button bindings
         configureButtonBindings();
     }
 
@@ -75,9 +68,6 @@ public class RobotContainer {
     private void configureButtonBindings() {
         /* Driver Buttons */
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroGyro()));
-        resetModules.onTrue(reset);
-
-        /* Shooter Buttons */
     }
 
     /**

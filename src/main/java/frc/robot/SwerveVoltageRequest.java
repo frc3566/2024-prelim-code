@@ -1,14 +1,14 @@
 package frc.robot;
 
 import com.ctre.phoenix6.StatusCode;
-import com.ctre.phoenix6.controls.MotionMagicVoltage;
-import com.ctre.phoenix6.controls.VoltageOut;
+// import com.ctre.phoenix6.controls.MotionMagicVoltage;
+// import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
-import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest.SwerveControlRequestParameters;
+// import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest.SwerveControlRequestParameters;
 
 public class SwerveVoltageRequest implements SwerveRequest {
-    private final MotionMagicVoltage m_motionMagicControl = new MotionMagicVoltage(0, false, 0, 0, false, false, false);
-    private final VoltageOut m_voltageOutControl = new VoltageOut(0.0);
+    // private final MotionMagicVoltage m_motionMagicControl = new MotionMagicVoltage(0, false, 0, 0, false, false, false);
+    // private final VoltageOut m_voltageOutControl = new VoltageOut(0.0);
 
     private double m_targetVoltage = 0.0;
 

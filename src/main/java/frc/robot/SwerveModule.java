@@ -162,6 +162,13 @@ public class SwerveModule {
         Conversions.falconToMeters(driveEncoder.getPosition(), Constants.Swerve.wheelCircumference, Constants.Swerve.driveGearRatio), 
         getAngle()
     );
-    
+  }
+
+  public CANSparkMax getDriveMotor(){
+    return driveMotor;
+  }
+
+  public CANSparkMax getAngleMotor(){
+    return angleMotor;
   }
 }

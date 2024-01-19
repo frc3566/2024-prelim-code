@@ -12,15 +12,18 @@ public class SwerveVoltageRequest implements SwerveRequest {
 
     private double m_targetVoltage = 0.0;
 
-    @Override
     public StatusCode apply(SwerveControlRequestParameters parameters, SwerveModule... modulesToApply) {
-        for (var module : modulesToApply) 
+        for (SwerveModule module : modulesToApply) 
         {
             // Command steer motor to zero
-            module.getSteerMotor().setControl(m_motionMagicControl);
+            // module.getSteerMotor().setControl(m_motionMagicControl);
+            module.getAngleMotor().setVoltage(0);
+
 
             // Command drive motor to voltage
-            module.getDriveMotor().setControl(m_voltageOutControl.withOutput(m_targetVoltage));
+            // module.getDriveMotor().setControl(m_voltageOutControl.withOutput(m_targetVoltage));
+            module.getDriveMotor().setVoltage(m_targetVoltage);
+
         }
 
         return StatusCode.OK;

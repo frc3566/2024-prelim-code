@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.TeleopSwerve;
 import frc.robot.subsystems.Swerve;
+import frc.robot.subsystems.SysIdSwerve;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -21,7 +22,7 @@ import frc.robot.subsystems.Swerve;
 
 public class RobotRoutine {
   // The robot's subsystems
-  private final Swerve m_drive = new Swerve();
+  private final SysIdSwerve m_drive = new SysIdSwerve();
 
   // The driver's controller
   CommandXboxController m_driverController =

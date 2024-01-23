@@ -65,8 +65,8 @@ public class RobotContainer {
         /* Driver Buttons */
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroGyro()));
         resetModules.onTrue(reset);
-        shooting.whileTrue(new InstantCommand(() -> s_Shooter.shoot(0.5)));
-
+        shooting.onTrue(new InstantCommand(() -> s_Shooter.shoot(0.5)));
+        shooting.onFalse(new InstantCommand(() -> s_Shooter.stopMotor()));
     }
 
     /**

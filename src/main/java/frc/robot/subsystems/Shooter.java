@@ -29,12 +29,19 @@ public class Shooter extends SubsystemBase {
     public Shooter(){
         shooterLeftMotor = new CANSparkMax(9, MotorType.kBrushless);
         shooterRightMotor = new CANSparkMax(10, MotorType.kBrushless);
+
     }
 
     public void shoot(double power){
-        shooterLeftMotor.set(power);
+        shooterLeftMotor.set(-power);
         shooterRightMotor.set(-power);
     }
+
+    public void stopMotor(){
+        shooterLeftMotor.set(0);
+        shooterRightMotor.set(0);
+    }
+
 
     @Override
     public void periodic(){

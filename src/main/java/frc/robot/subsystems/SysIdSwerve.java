@@ -36,14 +36,16 @@ public class SysIdSwerve extends Swerve {
         this 
     );
 
+    private final SwerveControlRequestParameters controlRequestParameters = new SwerveControlRequestParameters(
+        /* TODO: add control request params */
+    );
+
     /* Tell SysId how to plumb the driving voltage to the motors. */
     private void routineDriving(Measure<Voltage> volts) {
         appliedVoltage.mut_replace(volts);
         new SwerveVoltageRequest()
             .withVoltage(volts.in(Units.Volts))
-            .apply(new SwerveControlRequestParameters(
-
-            ), mSwerveMods);
+            .apply(controlRequestParameters, mSwerveMods);
     }
 
     /* Tell SysId how to record a frame of data for each motor on the mechanism being characterized. */

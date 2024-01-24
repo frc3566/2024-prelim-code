@@ -152,14 +152,14 @@ public class SwerveModule {
   }
 
   public Rotation2d getCanCoder() {
-    return Rotation2d.fromDegrees(angleEncoder.getAbsolutePosition().getValueAsDouble());
+    return Rotation2d.fromDegrees(angleEncoder.getAbsolutePosition().getValueAsDouble() * 360);
   }
 
   public SwerveModuleState getState() {
     return new SwerveModuleState(driveEncoder.getVelocity(), getAngle());
   }
   
-  public SwerveModulePosition getPosition(){
+  public SwerveModulePosition getPosition() {
     return new SwerveModulePosition(
         Conversions.falconToMeters(driveEncoder.getPosition(), Constants.Swerve.wheelCircumference, Constants.Swerve.driveGearRatio), 
         getAngle()

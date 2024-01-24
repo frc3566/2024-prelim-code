@@ -69,9 +69,11 @@ public class SwerveModule {
     setAngle(desiredState);
     setSpeed(desiredState, isOpenLoop);
   }
-
+  
   public double getValue() {
+    System.out.println(getCanCoder().getDegrees() - angleOffset.getDegrees());
     return getCanCoder().getDegrees() - angleOffset.getDegrees();
+    
   }
 
   public void resetToAbsolute() {
@@ -84,7 +86,7 @@ public class SwerveModule {
     angleEncoder.getConfigurator().apply(Robot.ctreConfigs.swerveCanCoderConfig);
   }
 
-  private void configAngleMotor() {
+  private void configAngleMotor() { 
     angleMotor.restoreFactoryDefaults();
     CANSparkMaxUtil.setCANSparkMaxBusUsage(angleMotor, Usage.kPositionOnly);
     angleMotor.setSmartCurrentLimit(Constants.Swerve.angleContinuousCurrentLimit);

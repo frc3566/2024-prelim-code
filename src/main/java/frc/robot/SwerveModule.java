@@ -69,9 +69,9 @@ public class SwerveModule {
     setAngle(desiredState);
     setSpeed(desiredState, isOpenLoop);
   }
-  
+
   public double getValue() {
-    System.out.println(getCanCoder().getDegrees() - angleOffset.getDegrees());
+
     return getCanCoder().getDegrees() - angleOffset.getDegrees();
     
   }

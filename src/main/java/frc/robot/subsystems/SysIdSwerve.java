@@ -43,9 +43,22 @@ public class SysIdSwerve extends Swerve {
         this 
     );
 
-    private final SwerveControlRequestParameters controlRequestParameters = new SwerveControlRequestParameters(
-        /* TODO: add control request params */
-    );
+    private final SwerveControlRequestParameters controlRequestParameters = new SwerveControlRequestParameters();
+
+    /* set control request parameters */
+    public SysIdSwerve() {
+        super();
+
+        controlRequestParameters.kinematics = Constants.Swerve.swerveKinematics;
+        controlRequestParameters.currentPose = getPose();
+        controlRequestParameters.swervePositions = Arrays.stream(getModulePositions())
+            .map(modulePosition -> new Translation2d(modulePosition.distanceMeters, modulePosition.angle))
+            .toArray(size -> new Translation2d[size]);
+
+        /* TODO: set timestamp and updatePeriod values */
+        controlRequestParameters.timestamp = 0;
+        controlRequestParameters.updatePeriod = 0;
+    }
 
     /* Tell SysId how to plumb the driving voltage to the motors. */
     private void routineDriving(Measure<Voltage> volts) {

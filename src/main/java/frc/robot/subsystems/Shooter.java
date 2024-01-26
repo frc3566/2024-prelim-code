@@ -27,11 +27,13 @@ public class Shooter extends SubsystemBase {
     }
 
     public void increaseMaxPower() {
-        maxPower = Math.min(maxPower + 0.5, 1);
+        maxPower = Math.min(maxPower + 0.05, 1);
+        System.out.println("Shooter power set to " + maxPower);
     }
 
     public void decreaseMaxPower() {
-        maxPower = Math.max(maxPower - 0.5, 0);
+        maxPower = Math.max(maxPower - 0.05, 0);
+                System.out.println("Shooter power set to " + maxPower);
     }
 
     // public void setVoltage(double voltage) {

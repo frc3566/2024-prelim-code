@@ -71,7 +71,9 @@ public class SwerveModule {
   }
 
   public double getValue() {
+
     return getCanCoder().getDegrees() - angleOffset.getDegrees();
+    
   }
 
   public void resetToAbsolute() {
@@ -84,7 +86,7 @@ public class SwerveModule {
     angleEncoder.getConfigurator().apply(Robot.ctreConfigs.swerveCanCoderConfig);
   }
 
-  private void configAngleMotor() {
+  private void configAngleMotor() { 
     angleMotor.restoreFactoryDefaults();
     CANSparkMaxUtil.setCANSparkMaxBusUsage(angleMotor, Usage.kPositionOnly);
     angleMotor.setSmartCurrentLimit(Constants.Swerve.angleContinuousCurrentLimit);
@@ -150,14 +152,14 @@ public class SwerveModule {
   }
 
   public Rotation2d getCanCoder() {
-    return Rotation2d.fromDegrees(angleEncoder.getAbsolutePosition().getValueAsDouble());
+    return Rotation2d.fromDegrees(angleEncoder.getAbsolutePosition().getValueAsDouble() * 360);
   }
 
   public SwerveModuleState getState() {
     return new SwerveModuleState(driveEncoder.getVelocity(), getAngle());
   }
   
-  public SwerveModulePosition getPosition(){
+  public SwerveModulePosition getPosition() {
     return new SwerveModulePosition(
         Conversions.falconToMeters(driveEncoder.getPosition(), Constants.Swerve.wheelCircumference, Constants.Swerve.driveGearRatio), 
         getAngle()

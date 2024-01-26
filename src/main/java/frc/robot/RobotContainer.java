@@ -33,6 +33,10 @@ public class RobotContainer {
     private final JoystickButton robotCentric = new JoystickButton(driver, XboxController.Button.kY.value);
     private final JoystickButton resetButton = new JoystickButton(driver, XboxController.Button.kB.value);
 
+    /* Shooter Buttons */
+    private final JoystickButton leftBumper = new JoystickButton(driver, XboxController.Button.kLeftBumper.value);
+    private final JoystickButton rightBumper = new JoystickButton(driver, XboxController.Button.kRightBumper.value);
+
     /* Subsystems */
     private final Swerve s_Swerve = new Swerve();
     private final Shooter s_Shooter = new Shooter();
@@ -72,6 +76,10 @@ public class RobotContainer {
         /* Driver Buttons */
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroGyro()));
         resetButton.onTrue(resetCommand);
+
+        /* Shooter Buttons */
+        leftBumper.onTrue(new InstantCommand(() -> s_Shooter.decreaseMaxPower()));
+        leftBumper.onTrue(new InstantCommand(() -> s_Shooter.increaseMaxPower()));
     }
 
     /**

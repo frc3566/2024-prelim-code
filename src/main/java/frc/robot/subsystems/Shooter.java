@@ -7,9 +7,10 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
-
     public CANSparkMax left, right;
     public double ltrigger, rtrigger;
+
+    private double maxPower = 1;
 
     public Shooter() {
         left = new CANSparkMax(Constants.Shooter.Left_Motor_Id, MotorType.kBrushless);
@@ -19,8 +20,18 @@ public class Shooter extends SubsystemBase {
     }
 
     public void setPower(double power) {
+        power = power * maxPower;
+
         left.set(power);
         right.set(power);
+    }
+
+    public void increaseMaxPower() {
+        maxPower = Math.min(maxPower + 0.5, 1);
+    }
+
+    public void decreaseMaxPower() {
+        maxPower = Math.max(maxPower - 0.5, 0);
     }
 
     // public void setVoltage(double voltage) {

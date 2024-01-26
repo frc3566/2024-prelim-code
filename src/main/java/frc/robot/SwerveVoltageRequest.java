@@ -15,10 +15,16 @@ public class SwerveVoltageRequest {
     public StatusCode apply(SwerveControlRequestParameters parameters, SwerveModule... modulesToApply) {
         for (SwerveModule module: modulesToApply) {
             // Command steer motor to zero, template code: { module.getSteerMotor().setControl(m_motionMagicControl); }
-            module.getAngleMotor().setVoltage(0);
-
-            // Command drive motor to voltage, template code: { module.getDriveMotor().setControl(m_voltageOutControl.withOutput(m_targetVoltage)); }
-            module.getDriveMotor().setVoltage(m_targetVoltage);
+            if (module.getDriveMotorID() == 0 || module.getDriveMotorID() == 1){
+                module.getAngleMotor().setVoltage(0);
+                // Command drive motor to voltage, template code: { module.getDriveMotor().setControl(m_voltageOutControl.withOutput(m_targetVoltage)); }
+                module.getDriveMotor().setVoltage(m_targetVoltage);
+            }
+            else{
+                module.getAngleMotor().setVoltage(0);
+                module.getDriveMotor().setInverted(true);
+                module.getDriveMotor().setVoltage(m_targetVoltage);
+            }
         }
 
         return StatusCode.OK;

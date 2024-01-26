@@ -176,4 +176,8 @@ public class SwerveModule {
   public CANSparkMax getAngleMotor() {
     return angleMotor;
   }
+
+  public int getDriveMotorID(){
+    return driveMotor.getDeviceId();
+  }
 }

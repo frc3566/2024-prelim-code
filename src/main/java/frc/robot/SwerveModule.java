@@ -76,7 +76,7 @@ public class SwerveModule {
   }
 
   public void resetToAbsolute() {
-    integratedAngleEncoder.setPosition(getValue());
+    // integratedAngleEncoder.setPosition(getValue());
   }
 
   private void configAngleEncoder() {

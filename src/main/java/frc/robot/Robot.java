@@ -20,7 +20,8 @@ public class Robot extends TimedRobot {
 
   private Command m_autonomousCommand;
 
-  private RobotContainer m_robotContainer;
+  // private RobotContainer m_robotContainer;
+  private RobotRoutine m_robotRoutine;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -31,7 +32,8 @@ public class Robot extends TimedRobot {
     ctreConfigs = new CTREConfigs();
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    m_robotContainer = new RobotContainer();
+    // m_robotContainer = new RobotContainer();
+    m_robotRoutine = new RobotRoutine();
   }
   
 
@@ -61,7 +63,7 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+    m_autonomousCommand = m_robotRoutine.getAutonomousCommand();
 
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {

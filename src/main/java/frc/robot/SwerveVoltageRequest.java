@@ -13,7 +13,7 @@ public class SwerveVoltageRequest {
     private double m_targetVoltage = 0.0;
 
     public StatusCode apply(SwerveControlRequestParameters parameters, SwerveModule... modulesToApply) {
-        for (SwerveModule module : modulesToApply) {
+        for (SwerveModule module: modulesToApply) {
             // Command steer motor to zero, template code: { module.getSteerMotor().setControl(m_motionMagicControl); }
             module.getAngleMotor().setVoltage(0);
 

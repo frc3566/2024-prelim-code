@@ -169,11 +169,11 @@ public class SwerveModule {
     return angleEncoder.getVelocity().getValueAsDouble();
   }
 
-  public CANSparkMax getDriveMotor(){
+  public CANSparkMax getDriveMotor() {
     return driveMotor;
   }
 
-  public CANSparkMax getAngleMotor(){
+  public CANSparkMax getAngleMotor() {
     return angleMotor;
   }
 }

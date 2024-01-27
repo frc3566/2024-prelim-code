@@ -41,7 +41,7 @@ public class RobotContainer {
     private final Swerve s_Swerve = new Swerve();
     private final Shooter s_Shooter = new Shooter();
 
-    private Command resetCommand = new Reset(s_Swerve);
+    // private Command resetCommand = new Reset(s_Swerve);
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
@@ -75,7 +75,7 @@ public class RobotContainer {
     private void configureButtonBindings() {
         /* Driver Buttons */
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroGyro()));
-        resetButton.onTrue(resetCommand);
+        // resetButton.onTrue(resetCommand);
 
         /* Shooter Buttons */
         leftBumper.onTrue(new InstantCommand(() -> s_Shooter.decreaseMaxPower()));

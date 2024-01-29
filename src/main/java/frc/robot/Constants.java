@@ -58,7 +58,8 @@ public final class Constants {
     /* Drive Motor Characterization Values */
     public static final double driveKS = 0.3156;
     public static final double driveKV = 3.02865;
-    public static final double driveKA = 0.2401975;
+    // public static final double driveKA = 0.2401975;
+    public static final double driveKA = 0.00;
 
     /* Drive Motor Conversion Factors */
     public static final double driveConversionPositionFactor = (wheelDiameter * Math.PI) / driveGearRatio;
@@ -86,7 +87,7 @@ public final class Constants {
       public static final int driveMotorID = 1;
       public static final int angleMotorID = 2;
       public static final int canCoderID = 0;
-      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(321.94);
+      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(316.14);
       public static final SwerveModuleConstants constants = new SwerveModuleConstants(driveMotorID, angleMotorID,
           canCoderID, angleOffset);
     }
@@ -96,7 +97,7 @@ public final class Constants {
       public static final int driveMotorID = 3;
       public static final int angleMotorID = 4;
       public static final int canCoderID = 1;
-      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(113.64);
+      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(109.33);
       public static final SwerveModuleConstants constants = new SwerveModuleConstants(driveMotorID, angleMotorID,
           canCoderID, angleOffset);
     }

@@ -61,7 +61,7 @@ public final class Constants {
     // public static final double driveKV = 2.1428;
     public static final double driveKV = 3.0156;
     // public static final double driveKA = 0.18635;
-    public static final double driveKA = 0.21707;
+    public static final double driveKA = 0.00;
     // public static final double driveKA = 0.21707; 
 
     /* Drive Motor Conversion Factors */

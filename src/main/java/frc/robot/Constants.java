@@ -50,15 +50,15 @@ public final class Constants {
     public static final double angleKFF = 0.0;
 
     /* Drive Motor PID Values */
-    public static final double driveKP = 0.00018821;
+    public static final double driveKP = 0.0003824;
     public static final double driveKI = 0.0;
     public static final double driveKD = 0;
     public static final double driveKFF = 0.0;
 
     /* Drive Motor Characterization Values */
-    public static final double driveKS = 0.1235;
-    public static final double driveKV = 2.5747;
-    public static final double driveKA = 0.1214;
+    public static final double driveKS = 0.3156;
+    public static final double driveKV = 3.02865;
+    public static final double driveKA = 0.2401975;
 
     /* Drive Motor Conversion Factors */
     public static final double driveConversionPositionFactor = (wheelDiameter * Math.PI) / driveGearRatio;

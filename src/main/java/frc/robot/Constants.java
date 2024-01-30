@@ -86,7 +86,7 @@ public final class Constants {
       public static final int driveMotorID = 1;
       public static final int angleMotorID = 2;
       public static final int canCoderID = 0;
-      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(339.52);
+      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(332.49);
       public static final SwerveModuleConstants constants = new SwerveModuleConstants(driveMotorID, angleMotorID,
           canCoderID, angleOffset);
     }
@@ -96,7 +96,7 @@ public final class Constants {
       public static final int driveMotorID = 3;
       public static final int angleMotorID = 4;
       public static final int canCoderID = 1;
-      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(20.65);
+      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(109.16);
       public static final SwerveModuleConstants constants = new SwerveModuleConstants(driveMotorID, angleMotorID,
           canCoderID, angleOffset);
     }
@@ -106,7 +106,7 @@ public final class Constants {
       public static final int driveMotorID = 5;
       public static final int angleMotorID = 6;
       public static final int canCoderID = 2;
-      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(243.30);
+      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(309.81);
       public static final SwerveModuleConstants constants = new SwerveModuleConstants(driveMotorID, angleMotorID,
           canCoderID, angleOffset);
     }
@@ -118,7 +118,7 @@ public final class Constants {
       public static final int driveMotorID = 7;
       public static final int angleMotorID = 8;
       public static final int canCoderID = 3;
-      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(237.13);
+      public static final Rotation2d angleOffset = Rotation2d.fromDegrees(339.258);
       public static final SwerveModuleConstants constants = new SwerveModuleConstants(driveMotorID, angleMotorID,
           canCoderID, angleOffset);
     }
@@ -127,6 +127,11 @@ public final class Constants {
   public static class Shooter {
       public static int Left_Motor_Id = 10;
       public static int Right_Motor_Id = 9;
+      public static final double ShooterKP=1;
+      public static final double ShooterKI=1;
+      public static final double ShooterKD=1;
+      public static final double ShooterKFF=1;
+
   }
 
   public static final class AutoConstants {

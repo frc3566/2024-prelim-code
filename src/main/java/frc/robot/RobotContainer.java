@@ -53,9 +53,9 @@ public class RobotContainer {
 
         s_Shooter.setDefaultCommand(
             new Shoot(
-                s_Shooter, 
-                () -> driver.getRawAxis(leftTriggerID),
-                () -> driver.getRawAxis(rightTriggerID)
+                s_Shooter
+                // () -> driver.getRawAxis(leftTriggerID),
+                // () -> driver.getRawAxis(rightTriggerID)
             )
         );
 

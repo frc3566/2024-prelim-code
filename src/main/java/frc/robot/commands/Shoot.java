@@ -11,12 +11,12 @@ public class Shoot extends Command {
     private Shooter s_Shooter;
     private DoubleSupplier left, right, targetVelocity;
 
-    public Shoot(Shooter s_Shooter, DoubleSupplier leftTrigger, DoubleSupplier rightTrigger) {
+    public Shoot(Shooter s_Shooter) {
     // public Shoot(Shooter s_Shooter, DoubleSupplier leftTrigger, DoubleSupplier rightTrigger, DoubleSupplier targetVelocity) {
         addRequirements(s_Shooter);
         this.s_Shooter = s_Shooter;
-        this.left = leftTrigger;
-        this.right = rightTrigger;
+        s_Shooter.setReference(0.5)
+
         // this.targetVelocity = targetVelocity;
     }
     

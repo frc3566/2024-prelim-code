@@ -32,14 +32,13 @@ public class RobotContainer {
     private final JoystickButton zeroGyro = new JoystickButton(driver, XboxController.Button.kX.value);
     private final JoystickButton robotCentric = new JoystickButton(driver, XboxController.Button.kY.value);
     private final JoystickButton resetButton = new JoystickButton(driver, XboxController.Button.kB.value);
-    private final JoystickButton shootButton = new JoystickButton(driver, XboxController.Button.kA.value);
+    // private final JoystickButton shootButton = new JoystickButton(driver, XboxController.Button.kA.value);
 
     /* Subsystems */
     private final Swerve s_Swerve = new Swerve();
-    private final Shooter s_Shooter = new Shooter();
+    // private final Shooter s_Shooter = new Shooter();
 
     private Command resetCommand = new Reset(s_Swerve);
-    private Command shootCommand = new Shoot(s_Shooter, 0.1); // Placeholder constant
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
@@ -74,7 +73,6 @@ public class RobotContainer {
         /* Driver Buttons */
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroGyro()));
         resetButton.onTrue(resetCommand);
-        shootButton.onTrue(shootCommand);
 
     }
 

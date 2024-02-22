@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import frc.robot.Constants;
 import frc.robot.subsystems.Swerve;
+import edu.wpi.first.math.geometry.Rotation2d;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
@@ -17,7 +18,8 @@ public class TeleopSwerve extends Command {
     private DoubleSupplier strafeSup;
     private DoubleSupplier rotationSup;
     private BooleanSupplier robotCentricSup;
-    private double offset, dt, prevTime;
+    private double dt, prevTime;
+    private Rotation2d offset;
     private Timer timer;
 
     public TeleopSwerve(Swerve s_Swerve, DoubleSupplier translationSup, DoubleSupplier strafeSup,
@@ -50,11 +52,13 @@ public class TeleopSwerve extends Command {
         double strafeVal = MathUtil.applyDeadband(strafeSup.getAsDouble(), Constants.Swerve.stickDeadband);
         //rotation
         double rotationVal = MathUtil.applyDeadband(rotationSup.getAsDouble(), Constants.Swerve.stickDeadband);
-        offset = -rotationVal * Constants.Swerve.maxAngularVelocity * dt;
+        offset = new Rotation2d(-rotationVal * Constants.Swerve.maxAngularVelocity * dt);
+        // Skew
+        Translation2d test = new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed).rotateBy(offset);
 
         /* Drive */
         s_Swerve.drive(
-                new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed),
+                test,
                 rotationVal * Constants.Swerve.maxAngularVelocity,
                 !robotCentricSup.getAsBoolean(),
                 true);

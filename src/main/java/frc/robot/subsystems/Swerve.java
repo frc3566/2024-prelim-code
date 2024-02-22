@@ -23,6 +23,7 @@ public class Swerve extends SubsystemBase {
     public SwerveModule[] mSwerveMods;
     public AHRS gyro;
     public double facing;
+    public double orientation, angle;
 
     public Swerve() {
         gyro = new AHRS(Constants.Swerve.navXPort);

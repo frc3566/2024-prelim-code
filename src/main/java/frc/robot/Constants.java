@@ -57,9 +57,9 @@ public final class Constants {
     public static final double driveKFF = 0.0;
 
     /* Drive Motor Characterization Values */
-    public static final double driveKS = 0.1235;
-    public static final double driveKV = 2.5747;
-    public static final double driveKA = 0.1214;
+    public static final double driveKS = 0.3249;
+    public static final double driveKV = 3.0554;
+    public static final double driveKA = 0.2840;
 
     /* Drive Motor Conversion Factors */
     public static final double driveConversionPositionFactor =
